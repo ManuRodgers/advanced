@@ -1,9 +1,16 @@
-// infer 的使用1：infer 出现在 extends 泛型约束中的条件语句后的函数类型的参数类型上
-interface ICustomer2 {
-  customerName: string;
-  customerMoney: number;
+// infer 的使用3：直接用在泛型实现里面
+class Subject {
+  constructor(public name: string, public subId: number) {}
 }
 
-type CustomerFunctionType2 = (customer: ICustomer2) => string;
-type InferType2<T> = T extends (params: ICustomer2) => infer P ? P : T;
-type InferResultType2 = InferType2<CustomerFunctionType2>;
+const chineseSubject = new Subject("语文", 1);
+const mathSubject = new Subject("数学", 2);
+const englishSubject = new Subject("英语", 3);
+const setManuSubject = new Set<Subject>([
+  chineseSubject,
+  mathSubject,
+  englishSubject
+]);
+type ElementOf0<T> = T extends Set<infer E> ? E : never;
+const result: ElementOf0<typeof setManuSubject> = setManuSubject.values().next()
+  .value;
