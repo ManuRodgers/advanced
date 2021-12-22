@@ -8,6 +8,8 @@ class ChinesePeople2 {
     console.log(`Hi, I'm ${this.name}`);
   }
 }
+
+console.log("hello: ");
 // 任何一个类或者函数，在 js 或者 ts 环境下有双重身份，一个是在 new 的时候代表类型，也可以当做是有一个构造函数对象变量，是一个值。
 // const MyChinesePeople2: new (
 //   name: string,
