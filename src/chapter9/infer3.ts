@@ -11,6 +11,9 @@ const setManuSubject = new Set<Subject>([
   mathSubject,
   englishSubject
 ]);
-type ElementOf0<T> = T extends Set<infer E> ? E : never;
-const result: ElementOf0<typeof setManuSubject> = setManuSubject.values().next()
-  .value;
+// type ElementOf0<T> = T extends Set<infer E> ? E : never;
+// const result: ElementOf0<typeof setManuSubject> = setManuSubject.values().next()
+//   .value;
+type InferType3<T> = T extends Set<infer E> ? E : never;
+type TransitionType = typeof setManuSubject;
+type InferTypeResult3 = InferType3<TransitionType>;
